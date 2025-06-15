@@ -304,23 +304,23 @@ class DazaNavbar {
 /**
  * Auto-initialization when DOM is ready
  */
-document.addEventListener('DOMContentLoaded', () => {
-  // Auto-initialize if navbar container exists and config is available
-  if (window.NavbarConfig && document.getElementById('navbar-container')) {
-    try {
-      const navbar = new DazaNavbar();
-      const success = navbar.render();
-      
-      if (success) {
-        // Store reference globally for easy access
-        window.DazaNavbarInstance = navbar;
-        console.log('DazaNavbar: Auto-initialized successfully');
-      }
-    } catch (error) {
-      console.error('DazaNavbar: Auto-initialization failed:', error);
-    }
-  }
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Auto-initialize if navbar container exists and config is available
+//   if (window.NavbarConfig && document.getElementById('navbar-container')) {
+//     try {
+//       const navbar = new DazaNavbar();
+//       const success = navbar.render();
+//       
+//       if (success) {
+//         // Store reference globally for easy access
+//         window.DazaNavbarInstance = navbar;
+//         console.log('DazaNavbar: Auto-initialized successfully');
+//       }
+//     } catch (error) {
+//       console.error('DazaNavbar: Auto-initialization failed:', error);
+//     }
+//   }
+// });
 
 /**
  * Utility function for quick initialization
