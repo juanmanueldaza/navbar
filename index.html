@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daza Navbar - A reusable navigation component for daza.ar websites">
+  <meta name="author" content="Juan Manuel Daza">
+  <title>Daza Navbar - Reusable Navigation Component</title>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Our navbar styles -->
+  <link rel="stylesheet" href="navbar.css">
+  
+  <!-- Demo page styles -->
+  <style>
+    :root {
+      --demo-bg: #0f0f0f;
+      --demo-text: #e0e0e0;
+      --demo-card-bg: #1a1a1a;
+      --demo-border: #333;
+      --demo-accent: #4a9eff;
+      --demo-code-bg: #252525;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      background: var(--demo-bg);
+      color: var(--demo-text);
+      line-height: 1.6;
+    }
+
+    .demo-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: var(--demo-accent);
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+
+    .hero .version {
+      display: inline-block;
+      background: var(--demo-card-bg);
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--demo-border);
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--demo-card-bg);
+      border: 1px solid var(--demo-border);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .card h2 {
+      color: var(--demo-accent);
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .card h3 {
+      color: var(--demo-accent);
+      margin-bottom: 15px;
+      margin-top: 25px;
+      font-size: 1.2em;
+    }
+
+    .code-block {
+      background: var(--demo-code-bg);
+      border: 1px solid var(--demo-border);
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+      font-family: 'Fira Mono', monospace;
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+
+    .code-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .feature {
+      background: var(--demo-card-bg);
+      border: 1px solid var(--demo-border);
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .feature h4 {
+      color: var(--demo-accent);
+      margin-bottom: 10px;
+    }
+
+    .demo-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .demo-btn {
+      background: var(--demo-accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9em;
+      transition: all 0.2s ease;
+    }
+
+    .demo-btn:hover {
+      background: #66b3ff;
+      transform: translateY(-1px);
+    }
+
+    .demo-btn.secondary {
+      background: var(--demo-card-bg);
+      color: var(--demo-text);
+      border: 1px solid var(--demo-border);
+    }
+
+    .demo-btn.secondary:hover {
+      background: var(--demo-border);
+    }
+
+    .navbar-demo {
+      margin: 40px 0;
+      border: 2px dashed var(--demo-border);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .navbar-demo p {
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--demo-border);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      
+      .demo-content {
+        padding: 20px 15px;
+      }
+      
+      .demo-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar will be rendered here -->
+  <div id="navbar-container"></div>
+
+  <div class="demo-content">
+    <section class="hero">
+      <h1><i class="fas fa-bars"></i> Daza Navbar</h1>
+      <div class="version">v1.0.0</div>
+      <p>A reusable, lightweight navigation component for daza.ar websites</p>
+      <p>🚀 Easy to integrate • 🎨 Highly customizable • 📱 Fully responsive</p>
+    </section>
+
+    <div class="navbar-demo">
+      <p>👆 The navbar above is a live demo! Try the interactive buttons below:</p>
+      <div class="demo-buttons">
+        <button class="demo-btn" onclick="togglePdfButton()">
+          <i class="fas fa-file-pdf"></i> Toggle PDF Button
+        </button>
+        <button class="demo-btn secondary" onclick="toggleTransparent()">
+          <i class="fas fa-adjust"></i> Toggle Transparency
+        </button>
+        <button class="demo-btn secondary" onclick="recreateNavbar()">
+          <i class="fas fa-sync"></i> Recreate Navbar
+        </button>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2><i class="fas fa-rocket"></i> Quick Start</h2>
+      <p>Get up and running in under 2 minutes:</p>
+
+      <h3>1. Include Dependencies</h3>
+      <div class="code-block">
+        <pre>&lt;!-- Font Awesome for icons --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
+
+&lt;!-- Daza Navbar --&gt;
+&lt;link rel="stylesheet" href="https://navbar.daza.ar/navbar.css"&gt;
+&lt;script src="https://navbar.daza.ar/config/navbar-config.js"&gt;&lt;/script&gt;
+&lt;script src="https://navbar.daza.ar/navbar.js"&gt;&lt;/script&gt;</pre>
+      </div>
+
+      <h3>2. Add HTML Container</h3>
+      <div class="code-block">
+        <pre>&lt;div id="navbar-container"&gt;&lt;/div&gt;</pre>
+      </div>
+
+      <h3>3. Initialize (Optional)</h3>
+      <div class="code-block">
+        <pre>&lt;script&gt;
+  // Auto-initializes on page load, or manually:
+  const navbar = new DazaNavbar({
+    showPdfButton: true,
+    pdfCallback: () =&gt; console.log('PDF clicked!')
+  });
+  navbar.render();
+&lt;/script&gt;</pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-cogs"></i> Features</h2>
+      <div class="features">
+        <div class="feature">
+          <h4><i class="fas fa-mobile-alt"></i> Responsive Design</h4>
+          <p>Automatically adapts to mobile, tablet, and desktop screens with optimized layouts.</p>
+        </div>
+        <div class="feature">
+          <h4><i class="fas fa-palette"></i> Theme Support</h4>
+          <p>Built-in dark/light theme support with CSS custom properties for easy customization.</p>
+        </div>
+        <div class="feature">
+          <h4><i class="fas fa-bolt"></i> Zero Dependencies</h4>
+          <p>Pure JavaScript with no external dependencies (except Font Awesome for icons).</p>
+        </div>
+        <div class="feature">
+          <h4><i class="fas fa-code"></i> Easy Integration</h4>
+          <p>Drop-in solution that works with any website or framework.</p>
+        </div>
+        <div class="feature">
+          <h4><i class="fas fa-sliders-h"></i> Configurable</h4>
+          <p>Customize contacts, buttons, styling, and behavior through simple configuration.</p>
+        </div>
+        <div class="feature">
+          <h4><i class="fas fa-universal-access"></i> Accessible</h4>
+          <p>Built with accessibility in mind - proper ARIA labels, keyboard navigation, and focus states.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-book"></i> Advanced Usage</h2>
+      
+      <h3>Custom Configuration</h3>
+      <div class="code-block">
+        <pre>const customNavbar = new DazaNavbar({
+  showPdfButton: true,
+  settings: {
+    transparentMode: true,
+    fixedPosition: true,
+    animateEntrance: true
+  },
+  pdfCallback: () =&gt; {
+    // Your PDF generation logic
+    generatePDF();
+  }
+});
+
+customNavbar.render('my-navbar-container');</pre>
+      </div>
+
+      <h3>Dynamic Updates</h3>
+      <div class="code-block">
+        <pre>// Update contacts dynamically
+navbar.updateContacts([
+  { href: 'mailto:new@email.com', icon: 'fa-solid fa-envelope', label: 'Email' }
+]);
+
+// Toggle PDF button
+navbar.togglePdfButton(true);
+
+// Update configuration
+navbar.updateConfig({ 
+  settings: { transparentMode: true } 
+});</pre>
+      </div>
+
+      <h3>Event Handling</h3>
+      <div class="code-block">
+        <pre>// Listen for navbar events
+document.addEventListener('navbar:rendered', (e) =&gt; {
+  console.log('Navbar rendered!', e.detail.navbar);
+});
+
+document.addEventListener('navbar:contact-clicked', (e) =&gt; {
+  console.log('Contact clicked:', e.detail.contact);
+});</pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-download"></i> Files & CDN</h2>
+      <p>All files are hosted on GitHub Pages and available via CDN:</p>
+      
+      <div class="code-block">
+        <pre><!-- Core Files -->
+https://navbar.daza.ar/navbar.css
+https://navbar.daza.ar/navbar.js
+https://navbar.daza.ar/config/navbar-config.js
+
+<!-- Examples -->
+https://navbar.daza.ar/examples/basic.html
+https://navbar.daza.ar/examples/with-pdf.html</pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-question-circle"></i> Browser Support</h2>
+      <p>Compatible with all modern browsers:</p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>✅ Chrome 60+</li>
+        <li>✅ Firefox 55+</li>
+        <li>✅ Safari 12+</li>
+        <li>✅ Edge 79+</li>
+        <li>✅ Mobile browsers (iOS Safari, Chrome Mobile)</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Made with ❤️ by <a href="https://daza.ar" style="color: var(--demo-accent);">Juan Manuel Daza</a></p>
+      <p>Open source • <a href="https://github.com/juanmanueldaza" style="color: var(--demo-accent);">View on GitHub</a></p>
+    </footer>
+  </div>
+
+  <!-- Include our navbar configuration and script -->
+  <script src="config/navbar-config.js"></script>
+  <script src="navbar.js"></script>
+  
+  <!-- Demo functionality -->
+  <script>
+    let pdfButtonVisible = false;
+    let transparentMode = false;
+
+    // Initialize navbar with PDF button initially hidden
+    document.addEventListener('DOMContentLoaded', () => {
+      // The navbar auto-initializes, but we can access it
+      setTimeout(() => {
+        if (window.DazaNavbarInstance) {
+          console.log('Navbar initialized successfully');
+        }
+      }, 100);
+    });
+
+    function togglePdfButton() {
+      if (window.DazaNavbarInstance) {
+        pdfButtonVisible = !pdfButtonVisible;
+        window.DazaNavbarInstance.togglePdfButton(pdfButtonVisible);
+        
+        // Add PDF callback if showing
+        if (pdfButtonVisible) {
+          window.DazaNavbarInstance.updateConfig({
+            pdfCallback: () => {
+              alert('PDF download demo! 📄\n\nIn a real implementation, this would generate and download a PDF.');
+            }
+          });
+        }
+      }
+    }
+
+    function toggleTransparent() {
+      if (window.DazaNavbarInstance) {
+        transparentMode = !transparentMode;
+        window.DazaNavbarInstance.updateConfig({
+          settings: { transparentMode }
+        });
+        
+        // Re-render to apply changes
+        window.DazaNavbarInstance.destroy();
+        window.DazaNavbarInstance.render();
+      }
+    }
+
+    function recreateNavbar() {
+      if (window.DazaNavbarInstance) {
+        window.DazaNavbarInstance.destroy();
+        
+        // Create new instance with random settings for demo
+        const randomSettings = {
+          showPdfButton: Math.random() > 0.5,
+          settings: {
+            transparentMode: Math.random() > 0.5,
+            animateEntrance: true
+          }
+        };
+        
+        const newNavbar = new DazaNavbar(randomSettings);
+        newNavbar.render();
+        window.DazaNavbarInstance = newNavbar;
+        
+        // Update our demo state
+        pdfButtonVisible = randomSettings.showPdfButton;
+        transparentMode = randomSettings.settings.transparentMode;
+      }
+    }
+
+    // Add some demo event listeners
+    document.addEventListener('navbar:rendered', () => {
+      console.log('🎉 Navbar rendered!');
+    });
+
+    document.addEventListener('navbar:contact-clicked', (e) => {
+      console.log('📧 Contact clicked:', e.detail.contact.label);
+    });
+
+    document.addEventListener('navbar:pdf-clicked', () => {
+      console.log('📄 PDF button clicked!');
+    });
+  </script>
+</body>
+</html>

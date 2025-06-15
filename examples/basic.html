@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Navbar Example - Daza Navbar</title>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Daza Navbar styles -->
+  <link rel="stylesheet" href="../navbar.css">
+  
+  <!-- Basic page styling -->
+  <style>
+    :root {
+      --window-bg: #1a1a1a;
+      --window-border: #333;
+      --link: #4a9eff;
+      --link-hover: #66b3ff;
+      --button-bg: #2d2d2d;
+      --button-fg: #e0e0e0;
+      --button-border: #555;
+      --button-hover-bg: #3d3d3d;
+      --button-hover-fg: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #4a9eff;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      color: #4a9eff;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .section p {
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .code-example {
+      background: #252525;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+      font-size: 0.9em;
+    }
+
+    .code-example pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      
+      .content {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar Container - This is where the navbar will be rendered -->
+  <div id="navbar-container"></div>
+
+  <!-- Page Content -->
+  <div class="content">
+    <section class="hero">
+      <h1>Basic Navbar Example</h1>
+      <p>This page demonstrates the most basic usage of the Daza Navbar component.</p>
+      <p>The navbar above was automatically initialized when the page loaded.</p>
+    </section>
+
+    <section class="section">
+      <h2>What you see above</h2>
+      <p>The navbar contains my contact links (email, LinkedIn, GitHub, GitLab, and website) and is fully responsive. Try resizing your browser window to see how it adapts to different screen sizes.</p>
+    </section>
+
+    <section class="section">
+      <h2>How it works</h2>
+      <p>This example uses the auto-initialization feature. The navbar automatically renders when:</p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>• The page finishes loading (DOMContentLoaded event)</li>
+        <li>• A container with id "navbar-container" exists</li>
+        <li>• The NavbarConfig is loaded</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Required files</h2>
+      <p>This basic example includes these files:</p>
+      <div class="code-example">
+        <pre>&lt;!-- Font Awesome for icons --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
+
+&lt;!-- Daza Navbar CSS --&gt;
+&lt;link rel="stylesheet" href="../navbar.css"&gt;
+
+&lt;!-- Navbar configuration --&gt;
+&lt;script src="../config/navbar-config.js"&gt;&lt;/script&gt;
+
+&lt;!-- Navbar JavaScript --&gt;
+&lt;script src="../navbar.js"&gt;&lt;/script&gt;</pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>HTML structure</h2>
+      <p>All you need is a container element:</p>
+      <div class="code-example">
+        <pre>&lt;div id="navbar-container"&gt;&lt;/div&gt;</pre>
+      </div>
+      <p>The navbar will automatically render inside this container when the page loads.</p>
+    </section>
+
+    <section class="section">
+      <h2>CSS Variables</h2>
+      <p>The navbar respects CSS custom properties for theming. Define these variables in your CSS to customize the appearance:</p>
+      <div class="code-example">
+        <pre>:root {
+  --window-bg: #1a1a1a;
+  --window-border: #333;
+  --link: #4a9eff;
+  --link-hover: #66b3ff;
+  --button-bg: #2d2d2d;
+  --button-fg: #e0e0e0;
+  --button-border: #555;
+  --button-hover-bg: #3d3d3d;
+  --button-hover-fg: #ffffff;
+}</pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Try it yourself</h2>
+      <p>Copy this example and customize it for your needs. You can modify the contact information in the navbar-config.js file or create your own configuration.</p>
+    </section>
+  </div>
+
+  <!-- Daza Navbar Scripts -->
+  <script src="../config/navbar-config.js"></script>
+  <script src="../navbar.js"></script>
+
+  <!-- Optional: Add some logging to see when the navbar loads -->
+  <script>
+    document.addEventListener('navbar:rendered', () => {
+      console.log('✅ Navbar loaded successfully!');
+    });
+
+    document.addEventListener('navbar:contact-clicked', (e) => {
+      console.log('📧 Contact clicked:', e.detail.contact.label);
+    });
+  </script>
+</body>
+</html>
