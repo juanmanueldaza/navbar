@@ -1,179 +1,6 @@
 /* Daza Navbar Styles */
 /* CSS Variables for theming - can be overridden by parent site */
 :root {
-  --navbar-window-bg: #1a1a1a;
-  --navbar-window-border: #333;
-  --navbar-link: #4a9eff;
-  --navbar-link-hover: #66b3ff;
-  --navbar-button-bg: #2d2d2d;
-  --navbar-button-fg: #e0e0e0;
-  --navbar-button-border: #555;
-  --navbar-button-hover-bg: #3d3d3d;
-  --navbar-button-hover-fg: #ffffff;
-}
-
-/* Main navbar container */
-.header-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--window-bg, var(--navbar-window-bg));
-  padding: 18px 32px;
-  border-bottom: 1.5px solid var(--window-border, var(--navbar-window-border));
-  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-sizing: border-box;
-}
-
-/* Contacts section */
-.header-nav .contacts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  align-items: center;
-}
-
-/* Contact links styling */
-.header-nav .contacts a,
-.header-nav .contacts span {
-  color: var(--link, var(--navbar-link));
-  text-decoration: none;
-  font-size: 1.35em;
-  transition: color 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2px;
-  border-radius: 4px;
-}
-
-/* Contact links hover state */
-.header-nav .contacts a:hover,
-.header-nav .contacts span:hover {
-  color: var(--link-hover, var(--navbar-link-hover));
-  transform: translateY(-1px);
-}
-
-/* Font Awesome icons in contacts */
-.header-nav .contacts .fa-solid,
-.header-nav .contacts .fa-brands {
-  font-size: 1.25em;
-}
-
-/* PDF download button */
-.header-nav .pdf-btn {
-  padding: 8px 20px;
-  font-size: 1em;
-  border-radius: 6px;
-  background: var(--button-bg, var(--navbar-button-bg));
-  color: var(--button-fg, var(--navbar-button-fg));
-  border: 1px solid var(--button-border, var(--navbar-button-border));
-  cursor: pointer;
-  margin-left: 24px;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* PDF button hover state */
-.header-nav .pdf-btn:hover {
-  background: var(--button-hover-bg, var(--navbar-button-hover-bg));
-  color: var(--button-hover-fg, var(--navbar-button-hover-fg));
-  transform: translateY(-1px);
-}
-
-/* PDF button active state */
-.header-nav .pdf-btn:active {
-  transform: translateY(0);
-}
-
-/* Focus states for accessibility */
-.header-nav .contacts a:focus,
-.header-nav .pdf-btn:focus {
-  outline: 2px solid var(--link, var(--navbar-link));
-  outline-offset: 2px;
-}
-
-/* Responsive design - tablet */
-@media (max-width: 768px) {
-  .header-nav {
-    padding: 16px 24px;
-  }
-  
-  .header-nav .contacts {
-    gap: 14px;
-  }
-  
-  .header-nav .contacts a,
-  .header-nav .contacts span {
-    font-size: 1.25em;
-  }
-  
-  .header-nav .pdf-btn {
-    margin-left: 16px;
-    padding: 6px 16px;
-  }
-}
-
-/* Responsive design - mobile */
-@media (max-width: 600px) {
-  .header-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 16px;
-  }
-  
-  .header-nav .contacts {
-    gap: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  .header-nav .contacts a,
-  .header-nav .contacts span {
-    font-size: 1.15em;
-  }
-  
-  .header-nav .pdf-btn {
-    margin-left: 0;
-    align-self: flex-start;
-  }
-}
-
-/* Extra small mobile devices */
-@media (max-width: 480px) {
-  .header-nav {
-    padding: 10px 12px;
-  }
-  
-  .header-nav .contacts {
-    gap: 8px;
-  }
-  
-  .header-nav .contacts a,
-  .header-nav .contacts span {
-    font-size: 1.1em;
-    padding: 2px 4px;
-  }
-  
-  .header-nav .pdf-btn {
-    font-size: 0.9em;
-    padding: 6px 14px;
-  }
-}
-
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  :root {
     --navbar-window-bg: #1a1a1a;
     --navbar-window-border: #333;
     --navbar-link: #4a9eff;
@@ -183,51 +10,369 @@
     --navbar-button-border: #555;
     --navbar-button-hover-bg: #3d3d3d;
     --navbar-button-hover-fg: #ffffff;
-  }
+}
+
+/* Main navbar container */
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--window-bg, var(--navbar-window-bg));
+    padding: 18px 32px;
+    border-bottom: 1.5px solid var(--window-border, var(--navbar-window-border));
+    font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* Contacts section */
+.header-nav .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+
+/* Contact links styling */
+.header-nav .contacts a,
+.header-nav .contacts span {
+    color: var(--link, var(--navbar-link));
+    text-decoration: none;
+    font-size: 1.35em;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+/* Contact links hover state */
+.header-nav .contacts a:hover,
+.header-nav .contacts span:hover {
+    color: var(--link-hover, var(--navbar-link-hover));
+    transform: translateY(-1px);
+}
+
+/* Font Awesome icons in contacts */
+.header-nav .contacts .fa-solid,
+.header-nav .contacts .fa-brands {
+    font-size: 1.25em;
+}
+
+/* PDF download button */
+.header-nav .pdf-btn {
+    padding: 8px 20px;
+    font-size: 1em;
+    border-radius: 6px;
+    background: var(--button-bg, var(--navbar-button-bg));
+    color: var(--button-fg, var(--navbar-button-fg));
+    border: 1px solid var(--button-border, var(--navbar-button-border));
+    cursor: pointer;
+    margin-left: 24px;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* PDF button hover state */
+.header-nav .pdf-btn:hover {
+    background: var(--button-hover-bg, var(--navbar-button-hover-bg));
+    color: var(--button-hover-fg, var(--navbar-button-hover-fg));
+    transform: translateY(-1px);
+}
+
+/* PDF button active state */
+.header-nav .pdf-btn:active {
+    transform: translateY(0);
+}
+
+/* Focus states for accessibility */
+.header-nav .contacts a:focus,
+.header-nav .pdf-btn:focus {
+    outline: 2px solid var(--link, var(--navbar-link));
+    outline-offset: 2px;
+}
+
+/* Dropdown container */
+.header-nav .dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown trigger button */
+.header-nav .dropdown-trigger {
+    background: none;
+    border: none;
+    color: var(--link, var(--navbar-link));
+    font-size: 1.35em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 2px;
+    border-radius: 4px;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    font-family: inherit;
+}
+
+/* Dropdown trigger hover state */
+.header-nav .dropdown-trigger:hover {
+    color: var(--link-hover, var(--navbar-link-hover));
+    transform: translateY(-1px);
+}
+
+/* Dropdown trigger focus state */
+.header-nav .dropdown-trigger:focus {
+    outline: 2px solid var(--link, var(--navbar-link));
+    outline-offset: 2px;
+}
+
+/* Dropdown arrow */
+.header-nav .dropdown-arrow {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when dropdown is open */
+.header-nav .dropdown-container.dropdown-open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.header-nav .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--window-bg, var(--navbar-window-bg));
+    border: 1.5px solid var(--window-border, var(--navbar-window-border));
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+    font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+}
+
+/* Show dropdown menu when open */
+.header-nav .dropdown-container.dropdown-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown items */
+.header-nav .dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    color: var(--body-color, var(--navbar-button-fg));
+    text-decoration: none;
+    font-size: 0.9em;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+/* First dropdown item */
+.header-nav .dropdown-item:first-child {
+    border-radius: 6px 6px 0 0;
+}
+
+/* Last dropdown item */
+.header-nav .dropdown-item:last-child {
+    border-radius: 0 0 6px 6px;
+}
+
+/* Single dropdown item (when only one item) */
+.header-nav .dropdown-item:first-child:last-child {
+    border-radius: 6px;
+}
+
+/* Dropdown item hover state */
+.header-nav .dropdown-item:hover {
+    background: var(--button-hover-bg, var(--navbar-button-hover-bg));
+    color: var(--button-hover-fg, var(--navbar-button-hover-fg));
+}
+
+/* Dropdown item focus state */
+.header-nav .dropdown-item:focus {
+    outline: 2px solid var(--link, var(--navbar-link));
+    outline-offset: -2px;
+    background: var(--button-hover-bg, var(--navbar-button-hover-bg));
+    color: var(--button-hover-fg, var(--navbar-button-hover-fg));
+}
+
+/* Responsive design - tablet */
+@media (max-width: 768px) {
+    .header-nav {
+        padding: 16px 24px;
+    }
+
+    .header-nav .contacts {
+        gap: 14px;
+    }
+
+    .header-nav .contacts a,
+    .header-nav .contacts span {
+        font-size: 1.25em;
+    }
+
+    .header-nav .dropdown-trigger {
+        font-size: 1.25em;
+    }
+
+    .header-nav .pdf-btn {
+        margin-left: 16px;
+        padding: 6px 16px;
+    }
+}
+
+/* Responsive design - mobile */
+@media (max-width: 600px) {
+    .header-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .header-nav .contacts {
+        gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .header-nav .contacts a,
+    .header-nav .contacts span {
+        font-size: 1.15em;
+    }
+
+    .header-nav .dropdown-trigger {
+        font-size: 1.15em;
+    }
+
+    .header-nav .dropdown-menu {
+        right: auto;
+        left: 0;
+        min-width: 200px;
+    }
+
+    .header-nav .pdf-btn {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .header-nav {
+        padding: 10px 12px;
+    }
+
+    .header-nav .contacts {
+        gap: 8px;
+    }
+
+    .header-nav .contacts a,
+    .header-nav .contacts span {
+        font-size: 1.1em;
+        padding: 2px 4px;
+    }
+
+    .header-nav .dropdown-trigger {
+        font-size: 1.1em;
+        padding: 2px 4px;
+    }
+
+    .header-nav .dropdown-item {
+        padding: 10px 14px;
+        font-size: 0.85em;
+    }
+
+    .header-nav .pdf-btn {
+        font-size: 0.9em;
+        padding: 6px 14px;
+    }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --navbar-window-bg: #1a1a1a;
+        --navbar-window-border: #333;
+        --navbar-link: #4a9eff;
+        --navbar-link-hover: #66b3ff;
+        --navbar-button-bg: #2d2d2d;
+        --navbar-button-fg: #e0e0e0;
+        --navbar-button-border: #555;
+        --navbar-button-hover-bg: #3d3d3d;
+        --navbar-button-hover-fg: #ffffff;
+    }
 }
 
 /* Light theme support */
 @media (prefers-color-scheme: light) {
-  :root {
-    --navbar-window-bg: #ffffff;
-    --navbar-window-border: #e0e0e0;
-    --navbar-link: #0066cc;
-    --navbar-link-hover: #0052a3;
-    --navbar-button-bg: #f5f5f5;
-    --navbar-button-fg: #333333;
-    --navbar-button-border: #cccccc;
-    --navbar-button-hover-bg: #e5e5e5;
-    --navbar-button-hover-fg: #000000;
-  }
+    :root {
+        --navbar-window-bg: #ffffff;
+        --navbar-window-border: #e0e0e0;
+        --navbar-link: #0066cc;
+        --navbar-link-hover: #0052a3;
+        --navbar-button-bg: #f5f5f5;
+        --navbar-button-fg: #333333;
+        --navbar-button-border: #cccccc;
+        --navbar-button-hover-bg: #e5e5e5;
+        --navbar-button-hover-fg: #000000;
+    }
 }
 
 /* Animation for navbar entrance */
 .header-nav {
-  animation: navbar-slide-in 0.3s ease-out;
+    animation: navbar-slide-in 0.3s ease-out;
 }
 
 @keyframes navbar-slide-in {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Utility classes */
 .header-nav.navbar-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 .header-nav.navbar-transparent {
-  background: rgba(26, 26, 26, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
