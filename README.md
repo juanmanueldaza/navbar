@@ -17,6 +17,9 @@ A lightweight, responsive, and highly customizable navigation component for mode
 - 🔧 **Easy Integration** - Drop-in solution for any website or framework
 - 🎯 **Event System** - Custom events for tracking and integration
 - 💫 **Smooth Animations** - Subtle entrance animations and hover effects
+- 🗂️ **Asset Versioning** - Bash script for cache busting (`asset-version.sh`)
+- 🧪 **Test Scaffolding** - Bash-based test runner (`test-navbar.sh`)
+- 🛡️ **Sanitization Utility** - Bash script for cleaning user content (`sanitize.sh`)
 
 ## 🚀 Quick Start
 
@@ -376,10 +379,28 @@ Contributions are welcome! Please follow these steps:
 - Update documentation for new features
 - Test across different browsers
 - Follow the existing code style
+- **Follow the branch workflow in [`CONTRIBUTING.md`](../../CONTRIBUTING.md)**
+- **Use the [`feature_improvement.md`](../../.github/ISSUE_TEMPLATE/feature_improvement.md) template for new features and improvements**
 
-## 📄 License
+## Security
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Always sanitize user-generated content before rendering. See [`SANITIZATION.md`](./SANITIZATION.md).
+
+## Asset Versioning
+
+Use `asset-version.sh` to generate versioned asset filenames for cache busting. See [`ASSET_VERSIONING.md`](./ASSET_VERSIONING.md) for details and usage.
+
+## Testing
+
+Run `test-navbar.sh` to test Bash scripts and utilities. See [`TESTING.md`](./TESTING.md) for more info.
+
+## Sanitization
+
+Use `sanitize.sh` to clean HTML/JS files of `<script>` tags and inline event handlers. See [`SANITIZATION.md`](./SANITIZATION.md) for usage and rationale.
+
+## API & Configuration
+
+See [`docs/navbar_api.md`](../docs/navbar_api.md) for full API/config documentation, usage examples, and advanced options.
 
 ## 👤 Author
 
