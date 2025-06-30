@@ -1,9 +1,9 @@
 /**
- * Download PDF Utility
- * A reusable utility function for converting DOM elements to PDF using html2canvas and jsPDF
+ * Download PDF Utility (ES Module)
+ * Converts DOM elements to PDF using html2canvas and jsPDF
  */
 
-class DownloadPdfUtil {
+export class DownloadPdfUtil {
   constructor(options = {}) {
     this.options = {
       selector: '.terminal-window',
@@ -77,21 +77,5 @@ class DownloadPdfUtil {
   }
 }
 
-// Export for different module systems
-if (typeof module !== 'undefined' && module.exports) {
-  // CommonJS
-  module.exports = DownloadPdfUtil;
-} else if (typeof define === 'function' && define.amd) {
-  // AMD
-  define([], function() {
-    return DownloadPdfUtil;
-  });
-} else {
-  // Browser global
-  window.DownloadPdfUtil = DownloadPdfUtil;
-}
-
-// Convenience function for backward compatibility
-window.downloadPdf = function(options = {}) {
-  return DownloadPdfUtil.download(options);
-};
+// Named export for ES module consumers
+export default { DownloadPdfUtil };
