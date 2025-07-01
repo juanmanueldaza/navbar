@@ -455,5 +455,25 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
       console.log('📄 PDF button clicked!');
     });
   </script>
+  <script type="module">
+    import { DownloadPdfUtil } from 'https://navbar.daza.ar/utils/downloadPdf.js';
+    window.setNavbarPdfCallback = function() {
+      if (window.DazaNavbarInstance) {
+        window.DazaNavbarInstance.updateConfig({
+          pdfCallback: () => {
+            DownloadPdfUtil.download({
+              selector: '.terminal-window', // Adjust selector as needed
+              filename: 'navbar-demo.pdf'
+            });
+          }
+        });
+      }
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.DazaNavbarInstance && window.DazaNavbarInstance.getConfig().settings.showPdfButton) {
+        window.setNavbarPdfCallback();
+      }
+    });
+  </script>
 </body>
 </html>
