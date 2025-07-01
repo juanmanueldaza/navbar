@@ -387,7 +387,11 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
         if (window.DazaNavbarInstance) {
           console.log('Navbar initialized successfully');
         }
-      }, 100);
+        // Always set the PDF callback after navbar is initialized
+        if (window.DazaNavbarInstance && window.setNavbarPdfCallback) {
+          window.setNavbarPdfCallback();
+        }
+      }, 150);
     });
 
     function togglePdfButton() {
