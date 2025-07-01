@@ -1,3 +1,6 @@
+import html2canvas from 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm';
+import jspdf from 'https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm';
+
 /**
  * Download PDF Utility (ES Module)
  * Converts DOM elements to PDF using html2canvas and jsPDF
@@ -48,8 +51,8 @@ export class DownloadPdfUtil {
       // Convert canvas to image data
       const imgData = canvas.toDataURL('image/png');
 
-      // Create PDF
-      const pdf = new jspdf.jsPDF({
+      // Create PDF (use ESM constructor directly)
+      const pdf = new jspdf({
         orientation: config.orientation,
         unit: config.unit,
         format: [canvas.width, canvas.height]
