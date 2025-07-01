@@ -394,14 +394,9 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
       if (window.DazaNavbarInstance) {
         pdfButtonVisible = !pdfButtonVisible;
         window.DazaNavbarInstance.togglePdfButton(pdfButtonVisible);
-        
-        // Add PDF callback if showing
-        if (pdfButtonVisible) {
-          window.DazaNavbarInstance.updateConfig({
-            pdfCallback: () => {
-              alert('PDF download demo! 📄\n\nIn a real implementation, this would generate and download a PDF.');
-            }
-          });
+        // Always set the callback after showing the button
+        if (pdfButtonVisible && window.setNavbarPdfCallback) {
+          window.setNavbarPdfCallback();
         }
       }
     }
