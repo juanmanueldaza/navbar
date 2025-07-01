@@ -490,13 +490,19 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
                 console.error('PDF export error: DownloadPdfUtil invalid:', DownloadPdfUtil);
                 return;
               }
-              await DownloadPdfUtil.download({
+              const args = {
                 selector: '.demo-content',
                 filename: 'navbar-demo.pdf',
-              });
+              };
+              console.log('[PDF Export] Calling DownloadPdfUtil.download with args:', args);
+              await DownloadPdfUtil.download(args);
+              console.log('[PDF Export] DownloadPdfUtil.download completed successfully');
             } catch (err) {
-              alert('PDF export failed: ' + (err && err.message ? err.message : err));
-              console.error('PDF export error:', err);
+              alert('PDF export failed: ' + (err && (err.message || err.toString()) ? err.message || err.toString() : err));
+              console.error('PDF export error (full object):', err);
+              if (err && err.stack) {
+                console.error('PDF export error stack:', err.stack);
+              }
             }
           },
         });
