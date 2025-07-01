@@ -460,8 +460,6 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
     import jspdf from 'https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm';
     import { DownloadPdfUtil } from 'https://navbar.daza.ar/utils/downloadPdf.js';
     window.html2canvas = html2canvas;
-    window.jspdf = { jsPDF: jspdf };
-    window.jsPDF = jspdf;
     document.addEventListener('DOMContentLoaded', () => {
       if (window.DazaNavbarInstance) {
         window.DazaNavbarInstance.updateConfig({
@@ -478,11 +476,6 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
               if (!window.html2canvas) {
                 alert('PDF export failed: html2canvas is not loaded on window!');
                 console.error('PDF export error: html2canvas missing on window');
-                return;
-              }
-              if (!window.jspdf) {
-                alert('PDF export failed: jspdf is not loaded on window!');
-                console.error('PDF export error: jspdf missing on window');
                 return;
               }
               // Diagnostics: log DownloadPdfUtil
