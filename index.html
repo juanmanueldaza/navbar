@@ -461,21 +461,20 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
     import { DownloadPdfUtil } from 'https://navbar.daza.ar/utils/downloadPdf.js';
     window.html2canvas = html2canvas;
     window.jspdf = jspdf;
-    window.setNavbarPdfCallback = function() {
+    document.addEventListener('DOMContentLoaded', () => {
       if (window.DazaNavbarInstance) {
         window.DazaNavbarInstance.updateConfig({
-          pdfCallback: () => {
-            DownloadPdfUtil.download({
-              selector: '.demo-content',
-              filename: 'navbar-demo.pdf'
-            });
-          }
+          pdfCallback: async () => {
+            try {
+              await DownloadPdfUtil.download({
+                selector: '.demo-content',
+                filename: 'navbar-demo.pdf',
+              });
+            } catch (err) {
+              alert('PDF export failed: ' + err.message);
+            }
+          },
         });
-      }
-    };
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.DazaNavbarInstance && window.DazaNavbarInstance.getConfig().settings.showPdfButton) {
-        window.setNavbarPdfCallback();
       }
     });
   </script>
