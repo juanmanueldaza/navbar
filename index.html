@@ -454,11 +454,11 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
       console.log('📄 PDF button clicked!');
     });
   </script>
+  <!-- Remove any duplicate or conflicting <script type="module"> tags, keep only this one for PDF export dependencies and callback setup -->
   <script type="module">
     import html2canvas from 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm';
     import jspdf from 'https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm';
     import { DownloadPdfUtil } from 'https://navbar.daza.ar/utils/downloadPdf.js';
-    // Patch globals for compatibility with DownloadPdfUtil
     window.html2canvas = html2canvas;
     window.jspdf = jspdf;
     window.setNavbarPdfCallback = function() {
