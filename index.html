@@ -461,6 +461,7 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
     import { DownloadPdfUtil } from 'https://navbar.daza.ar/utils/downloadPdf.js';
     window.html2canvas = html2canvas;
     window.jspdf = { jsPDF: jspdf };
+    window.jsPDF = jspdf;
     document.addEventListener('DOMContentLoaded', () => {
       if (window.DazaNavbarInstance) {
         window.DazaNavbarInstance.updateConfig({
