@@ -466,12 +466,37 @@ https://navbar.daza.ar/examples/with-pdf.html</pre>
         window.DazaNavbarInstance.updateConfig({
           pdfCallback: async () => {
             try {
+              // Diagnostics: check selector
+              const el = document.querySelector('.demo-content');
+              if (!el) {
+                alert('PDF export failed: .demo-content element not found!');
+                console.error('PDF export error: .demo-content element not found!');
+                return;
+              }
+              // Diagnostics: check dependencies
+              if (!window.html2canvas) {
+                alert('PDF export failed: html2canvas is not loaded on window!');
+                console.error('PDF export error: html2canvas missing on window');
+                return;
+              }
+              if (!window.jspdf) {
+                alert('PDF export failed: jspdf is not loaded on window!');
+                console.error('PDF export error: jspdf missing on window');
+                return;
+              }
+              // Diagnostics: log DownloadPdfUtil
+              if (!DownloadPdfUtil || typeof DownloadPdfUtil.download !== 'function') {
+                alert('PDF export failed: DownloadPdfUtil is not available or invalid!');
+                console.error('PDF export error: DownloadPdfUtil invalid:', DownloadPdfUtil);
+                return;
+              }
               await DownloadPdfUtil.download({
                 selector: '.demo-content',
                 filename: 'navbar-demo.pdf',
               });
             } catch (err) {
-              alert('PDF export failed: ' + err.message);
+              alert('PDF export failed: ' + (err && err.message ? err.message : err));
+              console.error('PDF export error:', err);
             }
           },
         });
