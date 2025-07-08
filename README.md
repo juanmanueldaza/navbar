@@ -2,6 +2,8 @@
 
 A lightweight, responsive, and highly customizable navigation component for modern websites. Built with vanilla JavaScript and designed for the daza.ar ecosystem.
 
+> **📁 Part of the daza.ar Ecosystem**: This repository is part of the [daza.ar-env](https://github.com/juanmanueldaza/daza.ar-env) development environment. For local development setup, unified workflow, and cross-site documentation, see the [main repository](https://github.com/juanmanueldaza/daza.ar-env).
+
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/juanmanueldaza/navbar)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![CDN](https://img.shields.io/badge/CDN-Available-brightgreen.svg)](https://navbar.daza.ar)
@@ -379,8 +381,15 @@ Contributions are welcome! Please follow these steps:
 - Update documentation for new features
 - Test across different browsers
 - Follow the existing code style
-- **Follow the branch workflow in [`CONTRIBUTING.md`](../../CONTRIBUTING.md)**
-- **Use the [`feature_improvement.md`](../../.github/ISSUE_TEMPLATE/feature_improvement.md) template for new features and improvements**
+
+### Ecosystem Development
+
+This repository is part of the **daza.ar-env** ecosystem:
+
+- **🚀 Development Setup**: Use [daza.ar-env](https://github.com/juanmanueldaza/daza.ar-env) for local development with unified workflow
+- **📋 Contributing**: Follow the branch workflow in [`daza.ar-env/CONTRIBUTING.md`](https://github.com/juanmanueldaza/daza.ar-env/blob/main/CONTRIBUTING.md)
+- **🎯 Issues & Features**: Use the [`feature_improvement.md`](https://github.com/juanmanueldaza/daza.ar-env/blob/main/.github/ISSUE_TEMPLATE/feature_improvement.md) template for new features and improvements
+- **🏗️ Architecture**: See [deployment documentation](https://github.com/juanmanueldaza/daza.ar-env/blob/main/docs/DEPLOYMENT.md) for the full ecosystem architecture
 
 ## Security
 
@@ -401,6 +410,18 @@ Use `sanitize.sh` to clean HTML/JS files of `<script>` tags and inline event han
 ## API & Configuration
 
 See [`docs/navbar_api.md`](../docs/navbar_api.md) for full API/config documentation, usage examples, and advanced options.
+
+## 🏗️ Ecosystem
+
+This navbar is part of the **daza.ar ecosystem**:
+
+- **🛠️ Development Environment**: [daza.ar-env](https://github.com/juanmanueldaza/daza.ar-env) - Unified development setup for all sites
+- **📄 CV Site**: [cv.daza.ar](https://cv.daza.ar) - Uses this navbar component
+- **📋 Onepager**: [onepager.daza.ar](https://onepager.daza.ar) - Uses this navbar component  
+- **🏠 Start Page**: [start.daza.ar](https://start.daza.ar) - Personal dashboard
+- **📝 Mdsite**: [mdsite.daza.ar](https://mdsite.daza.ar) - Markdown processing utilities
+- **📊 Data**: [data.daza.ar](https://data.daza.ar) - Content and data repository
+- **🖼️ Wallpapers**: [wallpapers.daza.ar](https://wallpapers.daza.ar) - Wallpaper collection
 
 ## 👤 Author
 
